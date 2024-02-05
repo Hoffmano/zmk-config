@@ -9,6 +9,18 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    behaviors {
+        tog_kp: tog_kp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TOG_KP";
+            bindings = <&tog>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -20,10 +32,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB           &kp Q  &kp W           &kp E        &kp R             &kp T        &kp Y      &kp U              &kp I          &kp O            &kp P             &lt 3 TILDE
-&kp LEFT_SHIFT    &kp A  &mt LEFT_ALT S  &mt RCTRL D  &mt LEFT_SHIFT F  &kp G        &kp H      &mt RIGHT_SHIFT J  &mt RCTRL K    &mt RIGHT_ALT L  &kp COMMA         &lt 2 SQT
-&kp LEFT_CONTROL  &kp Z  &kp X           &kp C        &kp V             &kp B        &kp N      &kp M              &kp COMMA      &kp PERIOD       &kp SINGLE_QUOTE  &lt 1 DOUBLE_QUOTES
-                                         &kp DELETE   &kp LEFT_GUI      &kp SPACE    &kp ENTER  &kp SPACE          &kp BACKSPACE
+&kp TAB           &kp Q  &kp W  &kp E       &kp R         &kp T         &kp Y      &kp U      &kp I          &kp O       &kp P            &kp APOS
+&kp LEFT_SHIFT    &kp A  &kp S  &kp D       &kp F         &kp G         &kp H      &kp J      &kp K          &kp L       &kp SEMICOLON    &kp CARET
+&kp LEFT_CONTROL  &kp Z  &kp X  &kp C       &kp V         &kp B         &kp N      &kp M      &kp COMMA      &kp PERIOD  &kp EXCLAMATION  &kp QUESTION
+                                &kp DELETE  &kp LEFT_GUI  &kp ESCAPE    &kp ENTER  &kp SPACE  &kp BACKSPACE
             >;
         };
 
@@ -37,7 +49,7 @@
             bindings = <
 &sys_reset  &bootloader   &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
-&kp LCTRL   &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
+&trans      &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
                                         &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL
             >;
         };
