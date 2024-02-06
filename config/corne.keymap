@@ -32,6 +32,13 @@
             #binding-cells = <0>;
             bindings = <&to_to 1 0>, <&to 2>, <&to 4>;
         };
+
+        enter: enter {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ENTER";
+            #binding-cells = <0>;
+            bindings = <&kp ENTER>, <&kp LC(ENTER)>;
+        };
     };
 
     combos {
@@ -44,26 +51,6 @@
     };
 
     macros {
-        w1: w {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_GUI &kp NUMBER_1>;
-            label = "W";
-        };
-
-        w2: w2 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_GUI &kp NUMBER_2>;
-            label = "W2";
-        };
-
-        w3: w3 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_GUI &kp NUMBER_3>;
-            label = "W3";
-        };
     };
 
     keymap {
@@ -77,10 +64,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&lt 3 TILDE  &kp Q  &kp W           &kp E        &kp R             &kp T      &kp Y   &kp U             &kp I        &kp O            &kp P          &kp APOS
-&lt 2 A      &kp A  &mt LEFT_ALT S  &mt RCTRL D  &mt LEFT_SHIFT F  &kp G      &kp H   &mt LEFT_SHIFT J  &mt RCTRL K  &mt RIGHT_ALT L  &kp BACKSPACE  &kp CARET
-&lt 1 SEMI   &kp Z  &kp X           &kp C        &kp V             &kp B      &kp N   &kp M             &kp COMMA    &mt SEMI PERIOD  &kp ENTER      &lt 4 QUESTION
-                                    &kp ESC      &kp LGUI          &kp TAB    &trans  &kp SPACE         &trans
+&lt 3 A     &kp Q  &kp W           &kp E        &kp R             &kp T      &kp Y   &kp U             &kp I        &kp O            &kp P          &kp TILDE
+&lt 2 A     &kp A  &mt LEFT_ALT S  &mt RCTRL D  &mt LEFT_SHIFT F  &kp G      &kp H   &mt LEFT_SHIFT J  &mt RCTRL K  &mt RIGHT_ALT L  &kp BACKSPACE  &mt QUESTION APOS
+&lt 1 SEMI  &kp Z  &kp X           &kp C        &kp V             &kp B      &kp N   &kp M             &kp COMMA    &mt SEMI PERIOD  &enter         &lt 4 CARET
+                                   &kp ESC      &kp LGUI          &kp TAB    &trans  &kp SPACE         &trans
             >;
         };
 
@@ -92,18 +79,18 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp EXCLAMATION  &kp LBRC   &kp RBRC  &kp GRAVE    &kp MINUS  &kp PLUS
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp QMARK        &kp LPAR   &kp RPAR  &kp PERCENT  &kp BSLH   &kp STAR
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER        &kp LBKT   &kp RBKT  &kp SQT      &kp DOT    &kp COMMA
-                             &kp ESC   &trans    &trans       &kp RET          &kp EQUAL  &kp RALT
+&trans  &trans  &trans  &trans  &trans  &trans    &kp EXCLAMATION  &kp LBRC   &kp RBRC  &kp GRAVE    &kp MINUS  &kp PLUS
+&trans  &trans  &trans  &trans  &trans  &trans    &kp QMARK        &kp LPAR   &kp RPAR  &kp PERCENT  &kp BSLH   &kp STAR
+&trans  &trans  &trans  &trans  &trans  &trans    &kp UNDER        &kp LBKT   &kp RBKT  &kp SQT      &kp DOT    &kp COMMA
+                        &trans  &trans  &trans    &kp RET          &kp EQUAL  &kp RALT
             >;
         };
 
         number {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                &trans                   &trans     &kp N7        &kp N8        &kp N9        &kp MINUS   &kp PLUS
-&trans  &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &trans     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp SLASH   &kp ASTERISK
-&trans  &trans  &trans  &trans  &trans                &trans                   &trans     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp PERIOD
+&trans  &trans  &trans  &trans  &trans                &trans                   &trans     &kp N7        &kp N8        &kp N9        &kp MINUS  &kp PLUS
+&trans  &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &trans     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp SLASH  &kp ASTERISK
+&trans  &trans  &trans  &trans  &trans                &trans                   &trans     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp COMMA  &kp PERIOD
                         &trans  &trans                &trans                   &kp ENTER  &kp EQUAL     &kp N0
             >;
         };
