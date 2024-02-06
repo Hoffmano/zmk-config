@@ -12,6 +12,8 @@
 
 &mt { flavor = "tap-preferred"; };
 
+&sl { /delete-property/ quick-release; };
+
 / {
     behaviors {
         to_to: to_to {
@@ -41,6 +43,29 @@
         };
     };
 
+    macros {
+        w1: w {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_GUI &kp NUMBER_1>;
+            label = "W";
+        };
+
+        w2: w2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_GUI &kp NUMBER_2>;
+            label = "W2";
+        };
+
+        w3: w3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_GUI &kp NUMBER_3>;
+            label = "W3";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -52,10 +77,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&lt 3 TILDE  &kp Q  &kp W           &kp E             &kp R             &kp T           &kp Y   &kp U             &kp I        &kp O            &kp P          &kp APOS
-&lt 2 A      &kp A  &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LEFT_SHIFT F  &kp G           &kp H   &mt LEFT_SHIFT J  &mt RCTRL K  &mt RIGHT_ALT L  &kp BACKSPACE  &kp CARET
-&lt 1 SEMI   &kp Z  &kp X           &kp C             &kp V             &kp B           &kp N   &kp M             &kp COMMA    &mt SEMI PERIOD  &kp ENTER      &lt 4 QUESTION
-                                    &kp ESC           &kp LGUI          &layer_dance    &trans  &kp SPACE         &trans
+&lt 3 TILDE  &kp Q  &kp W           &kp E        &kp R             &kp T     &kp Y   &kp U             &kp I        &kp O            &kp P          &kp APOS
+&lt 2 A      &kp A  &mt LEFT_ALT S  &mt RCTRL D  &mt LEFT_SHIFT F  &kp G     &kp H   &mt LEFT_SHIFT J  &mt RCTRL K  &mt RIGHT_ALT L  &kp BACKSPACE  &kp CARET
+&lt 1 SEMI   &kp Z  &kp X           &kp C        &kp V             &kp B     &kp N   &kp M             &kp COMMA    &mt SEMI PERIOD  &kp ENTER      &lt 4 QUESTION
+                                    &kp ESC      &kp LGUI          &trans    &trans  &kp SPACE         &trans
             >;
         };
 
@@ -67,10 +92,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT       &kp EXCLAMATION  &kp LBRC   &kp RBRC  &kp GRAVE    &kp MINUS  &kp PLUS
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans          &kp QMARK        &kp LPAR   &kp RPAR  &kp PERCENT  &kp BSLH   &kp STAR
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans          &kp UNDER        &kp LBKT   &kp RBKT  &kp SQT      &kp DOT    &kp COMMA
-                             &kp ESC   &to 2     &layer_dance    &kp RET          &kp EQUAL  &kp RALT
+&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp EXCLAMATION  &kp LBRC   &kp RBRC  &kp GRAVE    &kp MINUS  &kp PLUS
+&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp QMARK        &kp LPAR   &kp RPAR  &kp PERCENT  &kp BSLH   &kp STAR
+&kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER        &kp LBKT   &kp RBKT  &kp SQT      &kp DOT    &kp COMMA
+                             &kp ESC   &trans    &trans       &kp RET          &kp EQUAL  &kp RALT
             >;
         };
 
@@ -79,16 +104,16 @@
 &trans  &trans  &trans  &trans  &trans                &trans                   &trans     &kp N7        &kp N8        &kp N9        &kp MINUS   &kp PLUS
 &trans  &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &trans     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp SLASH   &kp ASTERISK
 &trans  &trans  &trans  &trans  &trans                &trans                   &trans     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &kp PERIOD
-                        &trans  &trans                &layer_dance             &kp ENTER  &kp EQUAL     &kp N0
+                        &trans  &trans                &trans                   &kp ENTER  &kp EQUAL     &kp N0
             >;
         };
 
         i3wm {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &layer_dance    &trans  &trans  &trans
+&trans  &kp LG(N1)        &kp RG(N2)  &kp RG(N3)         &kp LG(N4)      &kp LG(N5)    &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &trans  &trans
+&trans  &kp K_PLAY_PAUSE  &kp K_MUTE  &kp K_VOLUME_DOWN  &kp K_VOL_UP    &trans        &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans  &trans
+&trans  &trans            &trans      &trans             &trans          &trans        &kp LG(H)   &kp LG(J)   &kp LG(K)   &kp LG(L)   &trans  &trans
+                                      &trans             &kp LEFT_SHIFT  &trans        &trans      &trans      &trans
             >;
         };
 
@@ -100,10 +125,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&sys_reset  &bootloader   &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
-&trans      &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
-                                        &kp LCTRL     &kp LCTRL     &layer_dance    &kp LCTRL  &kp LCTRL  &kp LCTRL
+&bootloader  &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &bootloader
+&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
+&kp LCTRL    &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
+                                         &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL
             >;
         };
     };
