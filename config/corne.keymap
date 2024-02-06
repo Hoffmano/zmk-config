@@ -8,16 +8,39 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+&lt { tapping-term-ms = <300>; };
+
+&mt {
+    tapping-term-ms = <300>;
+    flavor = "tap-preferred";
+};
+
 / {
     behaviors {
-        tog_kp: tog_kp {
+        to_to: to_to {
             compatible = "zmk,behavior-hold-tap";
-            label = "TOG_KP";
-            bindings = <&tog>, <&kp>;
+            label = "TO_TO";
+            bindings = <&to>, <&to>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <300>;
             flavor = "tap-preferred";
+        };
+
+        layer_dance: layer_dance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LAYER_DANCE";
+            #binding-cells = <0>;
+            bindings = <&to_to 1 0>, <&to 2>, <&to 4>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        kl {
+            bindings = <&to 4>;
+            key-positions = <37 40>;
         };
     };
 
@@ -32,25 +55,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB           &kp Q  &kp W  &kp E       &kp R         &kp T         &kp Y      &kp U      &kp I          &kp O       &kp P            &kp APOS
-&kp LEFT_SHIFT    &kp A  &kp S  &kp D       &kp F         &kp G         &kp H      &kp J      &kp K          &kp L       &kp SEMICOLON    &kp CARET
-&kp LEFT_CONTROL  &kp Z  &kp X  &kp C       &kp V         &kp B         &kp N      &kp M      &kp COMMA      &kp PERIOD  &kp EXCLAMATION  &kp QUESTION
-                                &kp DELETE  &kp LEFT_GUI  &kp ESCAPE    &kp ENTER  &kp SPACE  &kp BACKSPACE
-            >;
-        };
-
-        keyboard {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            bindings = <
-&sys_reset  &bootloader   &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
-&trans      &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
-                                        &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL
+&kp TAB           &kp Q  &kp W  &kp E    &kp R             &kp T           &kp Y      &kp U        &kp I          &kp O       &kp P          &kp APOS
+&kp LEFT_SHIFT    &kp A  &kp S  &kp D    &mt LEFT_SHIFT F  &kp G           &kp H      &kp J        &kp K          &kp L       &kp BACKSPACE  &kp CARET
+&kp LEFT_CONTROL  &kp Z  &kp X  &kp C    &kp V             &kp B           &kp N      &kp M        &kp COMMA      &kp PERIOD  &kp ENTER      &kp QUESTION
+                                &kp ESC  &kp LGUI          &layer_dance    &kp ENTER  &lt 2 SPACE  &kp BACKSPACE
             >;
         };
 
@@ -65,7 +73,7 @@
 &kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp EXCLAMATION  &kp LBRC   &kp RBRC  &trans       &kp MINUS  &kp PLUS
 &kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp QMARK        &kp LPAR   &kp RPAR  &kp PERCENT  &kp BSLH   &kp STAR
 &kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER        &kp LBKT   &kp RBKT  &trans       &kp DOT    &kp COMMA
-                             &kp ESC   &trans    &kp SPACE    &kp RET          &kp EQUAL  &kp RALT
+                             &kp ESC   &to 2     &kp SPACE    &kp RET          &kp EQUAL  &kp RALT
             >;
         };
 
@@ -84,6 +92,21 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        keyboard {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
+
+            bindings = <
+&sys_reset  &bootloader   &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
+&trans      &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
+                                        &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL
             >;
         };
     };
