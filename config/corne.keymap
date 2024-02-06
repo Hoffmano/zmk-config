@@ -42,6 +42,16 @@
             #binding-cells = <0>;
             bindings = <&kp ENTER>, <&kp LC(ENTER)>;
         };
+
+        hold_mo_tap_caps: hold_mo_tap_caps {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_MO_TAP_CAPS";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&caps_word>;
+
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
     };
 
     combos {
@@ -64,10 +74,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&lt 3 CAPSLOCK     &kp Q  &kp W           &kp E        &kp R             &kp T      &kp Y              &kp U             &kp I         &kp O            &kp P          &kp TILDE
-&lt 2 QUESTION     &kp A  &mt LEFT_ALT S  &mt RCTRL D  &mt LEFT_SHIFT F  &kp G      &kp H              &mt LEFT_SHIFT J  &mt RCTRL K   &mt RIGHT_ALT L  &kp BACKSPACE  &mt GRAVE APOS
-&lt 1 EXCLAMATION  &kp Z  &kp X           &kp C        &kp V             &kp B      &kp N              &kp M             &kp COMMA     &kp PERIOD       &trans         &kp CARET
-                                          &kp ESC      &enter            &kp TAB    &kp LC(BACKSPACE)  &kp SPACE         &kp LEFT_GUI
+&hold_mo_tap_caps 3 0  &kp Q  &kp W           &kp E        &kp R             &kp T      &kp Y              &kp U             &kp I         &kp O            &kp P          &kp TILDE
+&lt 2 QUESTION         &kp A  &mt LEFT_ALT S  &mt RCTRL D  &mt LEFT_SHIFT F  &kp G      &kp H              &mt LEFT_SHIFT J  &mt RCTRL K   &mt RIGHT_ALT L  &kp BACKSPACE  &mt GRAVE APOS
+&lt 1 EXCLAMATION      &kp Z  &kp X           &kp C        &kp V             &kp B      &kp N              &kp M             &kp COMMA     &kp PERIOD       &trans         &kp CARET
+                                              &kp ESC      &enter            &kp TAB    &kp LC(BACKSPACE)  &kp SPACE         &kp LEFT_GUI
             >;
         };
 
