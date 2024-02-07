@@ -19,23 +19,6 @@ quick-tap-ms = <200>;};
 
 / {
     behaviors {
-        to_to: to_to {
-            compatible = "zmk,behavior-hold-tap";
-            label = "TO_TO";
-            bindings = <&to>, <&to>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            flavor = "tap-preferred";
-        };
-
-        layer_dance: layer_dance {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LAYER_DANCE";
-            #binding-cells = <0>;
-            bindings = <&to_to 1 0>, <&to 2>, <&to 4>;
-        };
-
         enter: enter {
             compatible = "zmk,behavior-tap-dance";
             label = "ENTER";
