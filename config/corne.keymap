@@ -8,14 +8,14 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-&lt { tapping-term-ms = <300>; };
+quick-tap-ms = <200>;};
 
 &mt {
     flavor = "tap-preferred";
-    quick-tap-ms = <50>;
+    quick-tap-ms = <200>;
 };
 
-&sl { /delete-property/ quick-release; };
+&caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE SPACE CARET GRAVE TILDE SQT DOT COMMA>; };
 
 / {
     behaviors {
@@ -42,16 +42,6 @@
             #binding-cells = <0>;
             bindings = <&kp ENTER>, <&kp LC(ENTER)>;
         };
-
-        hold_mo_tap_caps: hold_mo_tap_caps {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_MO_TAP_CAPS";
-            #binding-cells = <2>;
-            bindings = <&mo>, <&caps_word>;
-
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-        };
     };
 
     combos {
@@ -59,7 +49,7 @@
 
         semicolon {
             bindings = <&kp SEMICOLON>;
-            key-positions = <33 34>;
+            key-positions = <33 32>;
         };
     };
 
@@ -74,10 +64,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&hold_mo_tap_caps 3 0  &kp Q  &kp W           &kp E        &kp R             &kp T      &kp Y              &kp U             &kp I         &kp O            &kp P          &kp TILDE
-&lt 2 QUESTION         &kp A  &mt LEFT_ALT S  &mt RCTRL D  &mt LEFT_SHIFT F  &kp G      &kp H              &mt LEFT_SHIFT J  &mt RCTRL K   &mt RIGHT_ALT L  &kp BACKSPACE  &mt GRAVE APOS
-&lt 1 EXCLAMATION      &kp Z  &kp X           &kp C        &kp V             &kp B      &kp N              &kp M             &kp COMMA     &kp PERIOD       &trans         &kp CARET
-                                              &kp ESC      &enter            &kp TAB    &kp LC(BACKSPACE)  &kp SPACE         &kp LEFT_GUI
+&lt 3 SLASH        &kp Q  &kp W           &kp E        &kp R             &kp T     &kp Y      &kp U             &kp I         &kp O            &kp P      &kp TILDE
+&lt 2 QUESTION     &kp A  &mt LEFT_ALT S  &mt RCTRL D  &mt LEFT_SHIFT F  &kp G     &kp H      &mt LEFT_SHIFT J  &mt RCTRL K   &mt RIGHT_ALT L  &kp SQT    &kp GRAVE
+&lt 1 EXCLAMATION  &kp Z  &kp X           &kp C        &kp V             &kp B     &kp N      &kp M             &kp KP_COMMA  &kp KP_DOT       &kp CARET  &caps_word
+                                          &kp ESC      &kp LGUI          &enter    &kp SPACE  &kp BACKSPACE     &kp TAB
             >;
         };
 
@@ -89,10 +79,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &trans    &kp LESS_THAN  &kp GREATER_THAN  &kp LCTRL   &kp COLON        &kp BSPC   &kp LS(LBRC)  &kp RBRC  &kp GRAVE    &kp MINUS  &kp PLUS
-&trans  &kp PIPE  &kp DOLLAR     &kp AT_SIGN       &kp HASH    &kp AMPERSAND    &kp QMARK  &kp LPAR      &kp RPAR  &kp PERCENT  &kp BSLH   &kp STAR
-&trans  &trans    &trans         &trans            &trans      &trans           &kp UNDER  &kp LBKT      &kp RBKT  &kp SQT      &kp DOT    &kp COMMA
-                                 &kp K_UNDO        &kp K_REDO  &trans           &kp RET    &kp EQUAL     &kp RALT
+&trans  &trans    &kp LESS_THAN  &kp GREATER_THAN  &kp LCTRL   &kp COLON        &trans     &kp LEFT_BRACE  &kp RBRC  &kp GRAVE    &kp MINUS  &kp PLUS
+&trans  &kp PIPE  &kp DOLLAR     &kp AT_SIGN       &kp HASH    &kp AMPERSAND    &kp QMARK  &kp LPAR        &kp RPAR  &kp PERCENT  &kp BSLH   &kp STAR
+&trans  &trans    &trans         &trans            &trans      &trans           &kp UNDER  &kp LBKT        &kp RBKT  &kp SQT      &kp DOT    &kp COMMA
+                                 &kp K_UNDO        &kp K_REDO  &trans           &trans     &kp EQUAL       &trans
             >;
         };
 
@@ -107,10 +97,10 @@
 
         i3wm {
             bindings = <
-&trans  &kp LG(N1)        &kp RG(N2)  &kp RG(N3)         &kp LG(N4)      &kp LG(N5)    &kp LG(N6)   &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp PG_UP      &kp HOME
-&trans  &kp K_PLAY_PAUSE  &kp K_MUTE  &kp K_VOLUME_DOWN  &kp K_VOL_UP    &trans        &kp LEFT     &kp DOWN    &kp UP      &kp RIGHT   &kp PAGE_DOWN  &kp END
-&trans  &trans            &trans      &trans             &trans          &trans        &kp LG(H)    &kp LG(J)   &kp LG(K)   &kp LG(L)   &trans         &trans
-                                      &trans             &kp LEFT_SHIFT  &trans        &kp K_POWER  &kp K_LOCK  &trans
+&trans  &mt LS(LG(N1)) LG(N1)  &mt LG(LS(NUMBER_2)) LG(NUMBER_2)  &mt LG(LS(NUMBER_3)) LG(NUMBER_3)  &mt LS(LG(NUMBER_4)) LG(NUMBER_4)  &mt LG(LS(N5)) LG(N5)    &kp LCTRL     &kp LCTRL     &kp LCTRL   &kp LCTRL      &kp PG_UP      &kp HOME
+&trans  &kp K_PLAY_PAUSE       &kp K_MUTE                         &kp K_VOLUME_DOWN                  &kp K_VOL_UP                       &trans                   &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(UP)  &kp LC(RIGHT)  &kp PAGE_DOWN  &kp END
+&trans  &kp DOWN               &kp DOWN                           &kp UP                             &kp RIGHT                          &trans                   &kp LG(H)     &kp LG(J)     &kp LG(K)   &kp LG(L)      &trans         &trans
+                                                                  &trans                             &trans                             &trans                   &trans        &trans        &trans
             >;
         };
 
@@ -122,10 +112,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&bootloader  &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &bootloader
-&trans       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
-&kp LCTRL    &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
-                                         &bt BT_CLR    &kp LCTRL     &kp LCTRL       &kp LCTRL  &kp LCTRL  &kp LCTRL
+&bootloader  &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &sys_reset      &sys_reset   &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &bootloader
+&trans       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LCTRL    &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
+&kp LCTRL    &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL    &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
+                                         &bt BT_CLR    &kp LCTRL     &kp LCTRL       &kp K_POWER  &kp LCTRL  &kp LCTRL
             >;
         };
     };
