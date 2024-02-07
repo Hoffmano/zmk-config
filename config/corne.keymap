@@ -17,6 +17,8 @@ quick-tap-ms = <200>;};
 
 &caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE SPACE CARET GRAVE TILDE SQT DOT COMMA>; };
 
+&lt { quick-tap-ms = <200>; };
+
 / {
     behaviors {
         enter: enter {
