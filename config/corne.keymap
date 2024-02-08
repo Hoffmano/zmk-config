@@ -87,7 +87,7 @@
 
         i3wm {
             bindings = <
-&trans  &mt LS(LG(N1)) LG(N1)  &mt LG(LS(NUMBER_2)) LG(NUMBER_2)  &mt LG(LS(NUMBER_3)) LG(NUMBER_3)  &mt LS(LG(NUMBER_4)) LG(NUMBER_4)  &mt LG(LS(N5)) LG(N5)    &kp LCTRL     &kp LCTRL     &kp LCTRL   &kp LCTRL      &kp PG_UP      &kp HOME
+&trans  &mt LS(LG(N1)) LG(N1)  &mt LG(LS(NUMBER_2)) LG(NUMBER_2)  &mt LG(LS(NUMBER_3)) LG(NUMBER_3)  &mt LS(LG(NUMBER_4)) LG(NUMBER_4)  &mt LG(LS(N5)) LG(N5)    &kp LCTRL     &kp LG(H)     &kp LG(L)   &kp LCTRL      &kp PG_UP      &kp HOME
 &trans  &kp K_PLAY_PAUSE       &kp K_MUTE                         &kp K_VOLUME_DOWN                  &kp K_VOL_UP                       &trans                   &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT      &kp PAGE_DOWN  &kp END
 &trans  &kp LCTRL              &kp LCTRL                          &kp LCTRL                          &kp LCTRL                          &trans                   &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(UP)  &kp LC(RIGHT)  &kp LG(H)      &kp LG(L)
                                                                   &trans                             &trans                             &trans                   &trans        &trans        &trans
