@@ -69,7 +69,7 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &trans    &kp LESS_THAN  &kp GREATER_THAN  &kp LCTRL          &kp COLON        &trans     &kp LEFT_BRACE  &kp RBRC  &kp GRAVE    &kp MINUS  &kp PLUS
+&trans  &trans    &kp LESS_THAN  &kp GREATER_THAN  &trans          &kp COLON        &trans     &kp LEFT_BRACE  &kp RBRC  &kp GRAVE    &kp MINUS  &kp PLUS
 &trans  &kp PIPE  &kp DOLLAR     &kp AT_SIGN       &kp HASH           &kp AMPERSAND    &kp QMARK  &kp LPAR        &kp RPAR  &kp PERCENT  &kp BSLH   &kp STAR
 &trans  &trans    &trans         &trans            &kp DOUBLE_QUOTES  &trans           &kp UNDER  &kp LBKT        &kp RBKT  &kp SQT      &kp DOT    &kp COMMA
                                  &kp K_UNDO        &kp K_REDO         &trans           &trans     &kp EQUAL       &trans
@@ -102,10 +102,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&bootloader  &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &sys_reset      &sys_reset   &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &bootloader
-&trans       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LCTRL    &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
-&kp LCTRL    &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL     &kp LCTRL       &kp LCTRL    &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL  &kp LCTRL
-                                         &bt BT_CLR    &kp LCTRL     &kp LCTRL       &kp K_POWER  &kp LCTRL  &kp B
+&bootloader  &trans     &trans     &trans     &trans     &sys_reset      &sys_reset   &trans  &trans  &trans  &trans  &bootloader
+&trans       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans    &trans  &trans  &trans  &trans  &trans
+&trans    &trans     &trans     &trans     &trans     &trans       &trans    &trans  &trans  &trans  &trans  &trans
+                                         &bt BT_CLR    &trans     &trans       &kp K_POWER  &trans  &kp B
             >;
         };
 
