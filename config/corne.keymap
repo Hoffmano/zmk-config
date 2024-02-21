@@ -44,7 +44,7 @@
 
         cedilha {
             bindings = <&cedilha>;
-            key-positions = <27 19>;
+            key-positions = <27 20>;
         };
 
         a_tilde {
