@@ -41,6 +41,152 @@
             bindings = <&kp SEMICOLON>;
             key-positions = <33 32>;
         };
+
+        cedilha {
+            bindings = <&cedilha>;
+            key-positions = <27 19>;
+        };
+
+        a_tilde {
+            bindings = <&a_tilde>;
+            key-positions = <13 20>;
+        };
+
+        o_tilde {
+            bindings = <&o_tilde>;
+            key-positions = <15 9>;
+        };
+
+        i_agudo {
+            bindings = <&i_agudo>;
+            key-positions = <8 16>;
+        };
+
+        a_agudo {
+            bindings = <&a_agudo>;
+            key-positions = <13 19>;
+        };
+
+        e_agudo {
+            bindings = <&e_agudo>;
+            key-positions = <19 3>;
+        };
+
+        o_agudo {
+            bindings = <&o_agudo>;
+            key-positions = <9 16>;
+        };
+
+        u_agudo {
+            bindings = <&u_agudo>;
+            key-positions = <16 7>;
+        };
+
+        a_grave {
+            bindings = <&a_grave>;
+            key-positions = <13 21>;
+        };
+
+        e_chapeu {
+            bindings = <&e_chapeu>;
+            key-positions = <3 22>;
+        };
+
+        o_chapeu {
+            bindings = <&o_chapeu>;
+            key-positions = <9 13>;
+        };
+
+        a_chapeu {
+            bindings = <&a_chapeu>;
+            key-positions = <13 22>;
+        };
+    };
+
+    macros {
+        cedilha: cedilha {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SINGLE_QUOTE &kp C>;
+            label = "CEDILHA";
+        };
+
+        a_tilde: a_tilde {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp TILDE &kp A>;
+            label = "A_TILDE";
+        };
+
+        o_tilde: o_tilde {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp TILDE &kp O>;
+            label = "O_TILDE";
+        };
+
+        a_agudo: a_agudo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SINGLE_QUOTE &kp A>;
+            label = "A_AGUDO";
+        };
+
+        a_grave: a_grave {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE &kp A>;
+            label = "A_GRAVE";
+        };
+
+        e_agudo: e_agudo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SINGLE_QUOTE &kp E>;
+            label = "E_AGUDO";
+        };
+
+        i_agudo: i_agudo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SINGLE_QUOTE &kp I>;
+            label = "I_AGUDO";
+        };
+
+        o_agudo: o_agudo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SINGLE_QUOTE &kp O>;
+            label = "O_AGUDO";
+        };
+
+        u_agudo: u_agudo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SINGLE_QUOTE &kp U>;
+            label = "U_AGUDO";
+        };
+
+        e_chapeu: e_chapeu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp CARET &kp E>;
+            label = "E_CHAPEU";
+        };
+
+        o_chapeu: o_chapeu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp CARET &kp O>;
+            label = "O_CHAPEU";
+        };
+
+        a_chapeu: a_chapeu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp CARET &kp A>;
+            label = "A_CHAPEU";
+        };
     };
 
     keymap {
