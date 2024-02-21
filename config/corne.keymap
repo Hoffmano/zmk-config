@@ -84,22 +84,22 @@
 
         a_grave {
             bindings = <&a_grave>;
-            key-positions = <13 21>;
+            key-positions = <13 22>;
         };
 
         e_chapeu {
             bindings = <&e_chapeu>;
-            key-positions = <3 22>;
+            key-positions = <3 21>;
         };
 
         o_chapeu {
             bindings = <&o_chapeu>;
-            key-positions = <9 13>;
+            key-positions = <9 14>;
         };
 
         a_chapeu {
             bindings = <&a_chapeu>;
-            key-positions = <13 22>;
+            key-positions = <13 21>;
         };
     };
 
