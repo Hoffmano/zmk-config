@@ -284,7 +284,7 @@
 
         number {
             bindings = <
-&trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5     &kp DOT    &kp N7        &kp N8        &kp N9        &trans               &trans
+&trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5     &kp DOT    &kp N7        &kp N8        &kp N9        &kp EQUAL            &trans
 &trans  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10    &kp COMMA  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS            &kp PLUS
 &trans  &kp F11  &kp F12  &trans  &trans  &trans     &kp N0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &mt BACKSLASH SLASH  &kp STAR
                           &trans  &trans  &trans     &trans     &trans        &trans
