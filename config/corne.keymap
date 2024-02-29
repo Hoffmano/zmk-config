@@ -293,10 +293,10 @@
 
         i3wm {
             bindings = <
-&trans  &mt LS(LG(N1)) LG(N1)  &mt LG(LS(NUMBER_2)) LG(NUMBER_2)  &mt LG(LS(NUMBER_3)) LG(NUMBER_3)  &mt LS(LG(NUMBER_4)) LG(NUMBER_4)  &mt LG(LS(N5)) LG(N5)    &trans        &trans        &trans      &trans         &kp PG_UP      &kp C_VOLUME_UP
-&trans  &trans                 &kp K_MUTE                         &kp K_VOLUME_DOWN                  &kp K_VOL_UP                       &trans                   &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT      &kp PAGE_DOWN  &kp C_VOL_DN
-&trans  &trans                 &mt NUMBER_1 NUMBER_1              &trans                             &trans                             &trans                   &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(UP)  &kp LC(RIGHT)  &trans         &kp K_MUTE
-                                                                  &trans                             &trans                             &trans                   &trans        &trans        &trans
+&trans  &mt LS(LG(N1)) LG(N1)  &kp W  &kp W   &kp W   &kp X     &trans        &trans        &trans      &trans         &kp PG_UP      &kp C_VOLUME_UP
+&trans  &trans                 &kp W  &kp W   &kp W   &trans    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT      &kp PAGE_DOWN  &kp C_VOL_DN
+&trans  &trans                 &kp W  &kp W   &kp W   &trans    &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(UP)  &kp LC(RIGHT)  &trans         &kp K_MUTE
+                                      &trans  &trans  &trans    &trans        &trans        &trans
             >;
         };
 
