@@ -310,8 +310,17 @@
             bindings = <
 &trans  &trans        &trans        &trans        &trans        &sys_reset      &sys_reset   &trans  &trans  &trans  &trans  &trans
 &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans       &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &trans        &trans        &bootloader     &bootloader  &trans  &trans  &trans  &trans  &trans
+&trans  &to 5         &trans        &trans        &trans        &bootloader     &bootloader  &trans  &trans  &trans  &trans  &trans
                                     &bt BT_CLR    &trans        &trans          &kp K_POWER  &trans  &trans
+            >;
+        };
+
+        gaming {
+            bindings = <
+&lt 2 ESC  &kp Q  &kp W  &kp E    &kp R      &kp T      &kp Y      &kp U  &kp I      &kp O    &kp P     &to 0
+&kp LSHFT  &kp A  &kp S  &kp D    &kp F      &kp G      &kp H      &kp J  &kp K      &kp L    &kp SEMI  &none
+&kp LCTRL  &kp Z  &kp X  &kp C    &kp V      &kp B      &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
+                         &kp ESC  &kp SPACE  &kp TAB    &kp ENTER  &none  &none
             >;
         };
     };
