@@ -17,6 +17,11 @@
 
 &lt { quick-tap-ms = <200>; };
 
+&sl {
+    ignore-modifiers;
+    lazy;
+};
+
 / {
     behaviors {
         enter: enter {
