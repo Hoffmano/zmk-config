@@ -32,6 +32,14 @@
             #binding-cells = <0>;
             bindings = <&kp LC(BACKSPACE)>, <&kp BACKSPACE>;
         };
+
+        sticky_layer: sticky_layer {
+            compatible = "zmk,behavior-sticky-key";
+            label = "STICKY_LAYER";
+            bindings = <&mo>;
+            #binding-cells = <1>;
+            release-after-ms = <1000>;
+        };
     };
 
     combos {
@@ -317,10 +325,10 @@
 
         gaming {
             bindings = <
-&sl 2      &kp Q  &kp W  &kp E    &kp R      &kp T      &kp Y      &kp U  &kp I      &kp O    &kp P     &to 0
-&kp LSHFT  &kp A  &kp S  &kp D    &kp F      &kp G      &kp H      &kp J  &kp K      &kp L    &kp SEMI  &mo 2
-&kp LCTRL  &kp Z  &kp X  &kp C    &kp V      &kp B      &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &to 2
-                         &kp ESC  &kp SPACE  &kp TAB    &kp ENTER  &none  &none
+&sticky_layer 2  &kp Q  &kp W  &kp E    &kp R      &kp T      &kp Y      &kp U  &kp I      &kp O    &kp P     &to 0
+&kp LSHFT        &kp A  &kp S  &kp D    &kp F      &kp G      &kp H      &kp J  &kp K      &kp L    &kp SEMI  &mo 2
+&kp LCTRL        &kp Z  &kp X  &kp C    &kp V      &kp B      &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &to 2
+                               &kp ESC  &kp SPACE  &kp TAB    &kp ENTER  &none  &none
             >;
         };
     };
